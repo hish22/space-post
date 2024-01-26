@@ -16,7 +16,7 @@ use System\recto\show\Display;
 */
 
 Bridge::get("/",function() {
-    Display::view("home");
+    Display::view("homed");
 });
 
 Bridge::get("/about",function() {
