@@ -7,6 +7,7 @@
 -------------------------------------
 */
 use System\bridges\Bridge;
+use System\recto\show\Display;
 
 /*
 ---------------------------------------------------------------------
@@ -15,7 +16,7 @@ use System\bridges\Bridge;
 */
 
 Bridge::get("/",function() {
-    echo "<h1>Dude hello !!</h1>";
+    Display::view("home");
 });
 
 Bridge::get("/about",function() {

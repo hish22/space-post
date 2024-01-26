@@ -19,5 +19,6 @@ List all process to be executed
 -------------------------------
 */
 
-bridgeProcess::process();
 RectoProcess::process();
+bridgeProcess::process();
+

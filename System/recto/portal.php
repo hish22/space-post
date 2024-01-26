@@ -7,7 +7,7 @@ abstract class Portal{
     protected static array $ways = [];
 
     protected static function port() {
-        $handle = opendir("../../views");
+        $handle = opendir("views");
         if($handle) {
 
             while(false !==  ($f = readdir($handle))) {

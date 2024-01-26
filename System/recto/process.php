@@ -2,6 +2,8 @@
 
 namespace System\recto;
 
+use System\recto\Portal;
+
 abstract class Process extends Portal{
 
     protected static bool $triggered = false;
