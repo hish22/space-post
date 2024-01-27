@@ -16,8 +16,6 @@ use System\bridges\Bridge;
 
 abstract class route extends Bridge{
 
-    // private static bool $hit = false;
-
     protected static function inspect() {
         // Path from server headers.
             $uri = $_SERVER["REQUEST_URI"];
@@ -26,7 +24,8 @@ abstract class route extends Bridge{
             $counter = 0;
 
             foreach($paths as $path) {
-                if(($uri == $path)) {self::give($executables[$counter]); die;} 
+                // if($uri == '/') {}
+                if(($uri == $path)) {self::give($executables[$counter]);die;}
                 $counter++;
             }
 

@@ -7,6 +7,11 @@ Loder file for the app files.
 */
 
 
+// checkers System
+include_once("System/checker/checkManger.php");
+include_once("System/checker/gather.php");
+include_once("System/checker/process.php");
+
 // Bridges system
 include_once("System/bridges/bridge.php");
 include_once("System/bridges/route.php");

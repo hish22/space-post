@@ -1,22 +1,22 @@
 <?php
 
 
-/* 
--------------------------------------
- Load all required files (namespaces)
--------------------------------------
+/** 
+ * -------------------------------------
+ * Load all required files (namespaces)
+ * -------------------------------------
 */
 use System\bridges\Bridge;
 use System\recto\show\Display;
 
-/*
----------------------------------------------------------------------
- Here will be all your ways (routes) to the specified registerd ways.
----------------------------------------------------------------------
+/** 
+ * ---------------------------------------------------------------------
+ * Here will be all your ways (routes) to the specified registerd ways.
+ * ---------------------------------------------------------------------
 */
 
 Bridge::get("/",function() {
-    Display::view("homed");
+    Display::view("home");
 });
 
 Bridge::get("/about",function() {
