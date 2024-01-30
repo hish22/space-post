@@ -1,3 +1,4 @@
+<?= $img_uri = $_SERVER["REQUEST_URI"] = "/System/external/icons/logo.svg" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +30,7 @@
 </head>
 <body>
 
-    <img src="System/external/icons/logo.svg" alt="logo">
+    <img src=<?= $img_uri ?> alt="logo">
     <!-- <hr /> -->
     <h1> | Page Not Found! 404</h1>
 

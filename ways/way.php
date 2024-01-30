@@ -26,3 +26,7 @@ Bridge::get("/about",function() {
 Bridge::get("/auth", function() {
     echo "<h1>you should be auth to access</h1>";
 });
+
+Bridge::get("/user/{id}",function($params) {
+    echo $params["id"];
+});

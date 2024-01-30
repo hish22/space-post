@@ -35,7 +35,12 @@ abstract class route extends Bridge{
     
     protected static function give(Closure $executable) {
         http_response_code(200);
-        $executable();
+        if(self::$isDynamic) {
+            $executable(self::$params);
+        } else {
+            $executable();
+        }
+        
     }
 
     protected static function absent() {
