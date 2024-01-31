@@ -1,4 +1,4 @@
-<?= $img_uri = $_SERVER["REQUEST_URI"] = "/System/external/icons/logo.svg" ?>
+<?php $img_uri = $_SERVER["REQUEST_URI"] = "/System/external/icons/logo.svg" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

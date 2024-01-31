@@ -30,3 +30,20 @@ Bridge::get("/auth", function() {
 Bridge::get("/user/{id}",function($params) {
     echo $params["id"];
 });
+
+Bridge::get("/name/{id}",function($params) {
+    echo $params["id"];
+});
+
+Bridge::get("/person/{id}",function($params) {
+    echo $params["id"];
+});
+
+Bridge::get("/mom/{id}/{name}",function($params) {
+    echo $params["id"];
+    echo $params["name"];
+});
+
+Bridge::get("/oop/{id}",function($params) {
+    echo $params["id"];
+});
