@@ -20,7 +20,7 @@ Bridge::get("/",function() {
 });
 
 Bridge::get("/about",function() {
-    echo "<h1>About page baby! !!</h1>";
+    Display::view("about");
 });
 
 Bridge::get("/auth", function() {

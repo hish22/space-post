@@ -35,10 +35,10 @@ abstract class Bridge {
      */
     protected static array $executable = [];
     /**
-     * -------------------------------
+     * --------------------------
      * @var array
-     * Store dynamic route parameters. 
-     * -------------------------------
+     * Store executable closures.
+     * --------------------------
      */
     protected static array $params = [];
     /**
@@ -57,8 +57,12 @@ abstract class Bridge {
     protected static bool $isDynamic = false;
 
 
-    protected static int $dy = 1;
-    protected static int $st = 1;
+    protected static int $dyg = 1;
+    protected static int $stg = 1;
+
+    protected static int $dyp = 1;
+    protected static int $stp = 1;
+
 
     /**
      * Registering new get route method.
@@ -69,17 +73,19 @@ abstract class Bridge {
 
         if(preg_match(self::$pattern,$path)) {
 
-            self::$getRoutes["dynamic" . self::$dy++] = $path;
+            self::$getRoutes["dynamic" . self::$dyg++] = $path;
 
             self::$isDynamic = true;
 
         } else {
 
-            self::$getRoutes["static" . self::$st++] = $path;
+            self::$getRoutes["static" . self::$stg++] = $path;
 
         }
 
-        array_push(self::$executable,$executable);
+
+        self::$executable["get:".$path] = $executable;
+        // array_push(self::$executable,$executable);
 
     }
 
@@ -90,7 +96,18 @@ abstract class Bridge {
      */
 
     public static function post(String $path, Closure $executable) {
-        array_push(self::$postRoutes,$path);
+        if(preg_match(self::$pattern,$path)) {
+
+            self::$postRoutes["dynamic" . self::$dyp++] = $path;
+
+            self::$isDynamic = true;
+
+        } else {
+
+            self::$postRoutes["static" . self::$stp++] = $path;
+
+        }
+        self::$executable["post:".$path] = $executable;
     }
 
 }

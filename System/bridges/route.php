@@ -67,7 +67,7 @@ abstract class route extends Bridge{
 
                 if(($uri == $path) && (str_starts_with($type,'static'))) {
 
-                    self::give($executables[$counter]);
+                    self::give($executables["get:".$path]);
                     
                     die;
                 
@@ -78,7 +78,7 @@ abstract class route extends Bridge{
                     if(($uri == $mappped_path)) {
                         self::identifyParams($path);
 
-                        self::give($executables[$counter]);
+                        self::give($executables["get:".$path]);
                         
                         die;
                     

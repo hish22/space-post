@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1>Hello world! from html as <?= $_SERVER['REQUEST_URI']?></h1>
+    <form method="post">
+        <input type="text" name="data">
+        <button>Submit</button>
+    </form>
 </body>
 </html>
