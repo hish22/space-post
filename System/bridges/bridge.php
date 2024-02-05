@@ -110,4 +110,13 @@ abstract class Bridge {
         self::$executable["post:".$path] = $executable;
     }
 
+    /**
+     * Rest the Dynamic validator.
+     * @method void restDynamic()
+     * 
+     */
+    protected static function restDynamic() {
+        self::$isDynamic = false;
+    }
+
 }

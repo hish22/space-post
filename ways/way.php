@@ -16,7 +16,12 @@ use System\recto\show\Display;
 */
 
 Bridge::get("/",function() {
+    echo "<h1>Hello world!</h1>";
     Display::view("home");
+});
+
+Bridge::post("/", function($postData) {
+    Display::inject("home",$postData);
 });
 
 Bridge::get("/about",function() {

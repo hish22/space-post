@@ -57,7 +57,9 @@ abstract class route extends Bridge{
         // Path from server headers.
             $uri = $_SERVER["REQUEST_URI"];
 
-            $paths = self::$getRoutes;
+            $method = $_SERVER['REQUEST_METHOD'];
+
+            $paths = $method == "GET" ? self::$getRoutes : self::$postRoutes;
 
             $executables = self::$executable;
 
@@ -67,7 +69,9 @@ abstract class route extends Bridge{
 
                 if(($uri == $path) && (str_starts_with($type,'static'))) {
 
-                    self::give($executables["get:".$path]);
+                    self::restDynamic();
+
+                    self::give($method == "GET" ? $executables["get:".$path] : $executables["post:".$path]);
                     
                     die;
                 
@@ -78,7 +82,7 @@ abstract class route extends Bridge{
                     if(($uri == $mappped_path)) {
                         self::identifyParams($path);
 
-                        self::give($executables["get:".$path]);
+                        self::give($method == "GET" ? $executables["get:".$path] : $executables["post:".$path]);
                         
                         die;
                     
@@ -120,16 +124,25 @@ abstract class route extends Bridge{
     }
     
     /**
-     * ----------------
+     * --------------------------
      * Execute specified closure.
-     * ----------------
+     * --------------------------
      */
     protected static function give(Closure $executable) {
         http_response_code(200);
         if(self::$isDynamic) {
-            $executable(self::$params);
+            if($_SERVER['REQUEST_METHOD'] == "GET") {
+                $executable(self::$params);
+            } else {
+                $executable(self::$params,$_POST);
+            }
+            
         } else {
-            $executable();
+            if($_SERVER['REQUEST_METHOD'] == "GET") {
+                $executable();
+            } else {
+                $executable($_POST);
+            }
         }
         
     }
