@@ -55,7 +55,7 @@ abstract class route extends Bridge{
      */
     protected static function inspect() {
         // Path from server headers.
-            $uri = $_SERVER["REQUEST_URI"];
+            $uri = explode("?",$_SERVER["REQUEST_URI"])[0];
 
             $method = $_SERVER['REQUEST_METHOD'];
 
@@ -107,7 +107,7 @@ abstract class route extends Bridge{
 
         $splited_path = explode("/",$path);
 
-        $splited_uri = explode("/",$_SERVER['REQUEST_URI']);
+        $splited_uri = explode("/",explode("?",$_SERVER["REQUEST_URI"])[0]);
 
 
         for($i=1; $i < count($splited_path); $i++) {

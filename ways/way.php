@@ -27,7 +27,7 @@ Bridge::get("/",function() {
 Bridge::post("/", function($postData) {
    $display = Display::build();
    $display->inject($postData);
-   $display->redirect("/",["msg" => "DONE!"]);
+   $display->redirect("/",["msg" => "DONE"]);
 });
 
 Bridge::get("/about",function() {
