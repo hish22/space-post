@@ -111,11 +111,11 @@ abstract class Bridge {
     }
 
     /**
-     * Rest the Dynamic validator.
+     * Reset the Dynamic validator.
      * @method void restDynamic()
      * 
      */
-    protected static function restDynamic() {
+    protected static function resetDynamic() {
         self::$isDynamic = false;
     }
 

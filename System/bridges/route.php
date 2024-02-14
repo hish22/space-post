@@ -69,7 +69,7 @@ abstract class route extends Bridge{
 
                 if(($uri == $path) && (str_starts_with($type,'static'))) {
 
-                    self::restDynamic();
+                    self::resetDynamic();
 
                     self::give($method == "GET" ? $executables["get:".$path] : $executables["post:".$path]);
                     

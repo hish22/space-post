@@ -17,15 +17,21 @@ use System\recto\show\Display;
 
 Bridge::get("/",function() {
     echo "<h1>Hello world!</h1>";
-    Display::view("home");
+    Display::build()->view("home");
+});
+
+Bridge::get("/",function() {
+    Display::build()->view("home");
 });
 
 Bridge::post("/", function($postData) {
-    Display::inject("home",$postData);
+   $display = Display::build();
+   $display->inject($postData);
+   $display->redirect("/",["msg" => "DONE!"]);
 });
 
 Bridge::get("/about",function() {
-    Display::view("about");
+    Display::build()->view("about");
 });
 
 Bridge::get("/auth", function() {
