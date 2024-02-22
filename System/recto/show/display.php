@@ -37,10 +37,9 @@ class Display extends Portal{
     }
 
     public static function bring(String $search) : String | null {
-        if($_SERVER['REQUEST_METHOD'] == "POST") {
-            return self::$data[$search];
-        }
-        return null;
+        // if($_SERVER['REQUEST_METHOD'] == "POST") {
+        return self::$data[$search];
+        // }
     }
 
 }

@@ -17,5 +17,6 @@ use System\recto\show\Display;
         <input type="text" name="data">
         <button>Submit</button>
     </form>
+    <h1>Data is there!</h1>
 </body>
 </html>

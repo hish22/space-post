@@ -10,7 +10,9 @@ use Closure;
 * ----------------------------------
 */
 
-abstract class Bridge {
+class Bridge {
+
+    private function __construct(){}
     
 
     /**

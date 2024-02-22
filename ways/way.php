@@ -7,6 +7,7 @@
  * -------------------------------------
 */
 use System\bridges\Bridge;
+use System\bridges\route;
 use System\recto\show\Display;
 
 /** 
@@ -43,7 +44,9 @@ Bridge::get("/user/{id}",function($params) {
 });
 
 Bridge::get("/name/{id}",function($params) {
-    echo $params["id"];
+    $view = Display::build();
+    $view->inject($params);
+    $view->view("user");
 });
 
 Bridge::get("/person/{id}",function($params) {

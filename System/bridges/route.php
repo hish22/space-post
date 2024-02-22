@@ -14,7 +14,9 @@ namespace System\bridges;
 use Closure;
 use System\bridges\Bridge;
 
-abstract class route extends Bridge{
+class route extends Bridge{
+
+    private function __construct(){}
 
     /**
      * --------------------------------

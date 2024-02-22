@@ -4,7 +4,9 @@ namespace System\process;
 
 use System\bridges\route;
 
-abstract class Process extends Route{
+class Process extends Route{
+
+    private function __construct(){}
 
     protected static bool $triggered = false;
 
