@@ -1,0 +1,1 @@
+include_once("System/logic/interpret/aboutLogic.php");include_once("System/logic/interpret/aboutLogic.php");

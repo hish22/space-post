@@ -72,6 +72,7 @@ class Bridge {
      * 
      */
     public static function get(String $path, Closure $executable) {
+        
 
         if(preg_match(self::$pattern,$path)) {
 

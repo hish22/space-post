@@ -8,6 +8,8 @@
 */
 use System\bridges\Bridge;
 use System\bridges\route;
+use System\logic\interpret\AboutLogic;
+use System\logic\interpret\UserLogic;
 use System\recto\show\Display;
 
 /** 
@@ -31,9 +33,7 @@ Bridge::post("/", function($postData) {
    $display->redirect("/",["msg" => "DONE"]);
 });
 
-Bridge::get("/about",function() {
-    Display::build()->view("about");
-});
+Bridge::get("/about",function() {});
 
 Bridge::get("/auth", function() {
     echo "<h1>you should be auth to access</h1>";
@@ -43,11 +43,7 @@ Bridge::get("/user/{id}",function($params) {
     echo $params["id"];
 });
 
-Bridge::get("/name/{id}",function($params) {
-    $view = Display::build();
-    $view->inject($params);
-    $view->view("user");
-});
+Bridge::get("/name/{id}",UserLogic::make()->apply());
 
 Bridge::get("/person/{id}",function($params) {
     echo $params["id"];
